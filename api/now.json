@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "petgram-server",
+  "name": "petgram-server-flavs",
   "alias": ["petgram-api"],
   "builds": [{ "src": "index.js", "use": "@now/node" }],
   "routes": [{
