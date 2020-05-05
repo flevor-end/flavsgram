@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "petgram-server-flavs",
-  "alias": ["petgram-api"],
+  "name": "flavgram-server",
+  "alias": ["flavgram-api"],
   "builds": [{ "src": "index.js", "use": "@now/node" }],
   "routes": [{
     "headers": {
