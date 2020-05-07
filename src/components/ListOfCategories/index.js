@@ -1,15 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Category } from '../Category'
+import { Loading } from '../Loader'
 
 import { List, Item } from './styles'
-import { categories } from '../../../api/db.json'
+
+function useCategoriesData () {
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(false)
+  useEffect(function () {
+    setLoading(true)
+    window.fetch('https://flavgram-server.flavs.now.sh/categories').then(res => res.json())
+      .then(response => {
+        setCategories(response)
+        setLoading(false)
+      })
+  }, [])
+
+  return { categories, loading }
+}
 
 export const ListOfCategories = () => {
-  return (
-    <List>
+  const { categories, loading } = useCategoriesData()
+  const [showFixed, SetShowFixed] = useState(false)
+
+  useEffect(function () {
+    const onScroll = e => {
+      const newShowFixed = window.scrollY > 200
+      showFixed !== newShowFixed && SetShowFixed(newShowFixed)
+    }
+
+    document.addEventListener('scroll', onScroll)
+
+    return () => document.removeEventListener('scroll', onScroll)
+  }, [showFixed])
+
+  const renderList = (fixed) => (
+    <List fixed={fixed}>
       {
-        categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
+        loading ? <Item Key='loading'><Loading /></Item>
+          : categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
       }
     </List>
+  )
+
+  return (
+    <>
+      {renderList()}
+      {showFixed && renderList(true)}
+    </>
   )
 }
