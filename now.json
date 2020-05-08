@@ -1,20 +1,18 @@
 {
     "version": 2,
-    "name": "flavgram",
+    "name": "petgram",
     "builds": [
-        { "use": "@now/static-build",
-        "src": "package.json"}
+      { "use": "@now/static-build", "src": "package.json"}
     ],
     "routes": [
-        {
-            "src": "(.*).js", "dest": "/$1.js"
-        },
-        {
-            "src": "(.*).json", "dest": "/$1.json"
-        },
-        {
-            "src": "/.*", "dest": "/index.html"
-        }
+      {
+        "src": "(.*).js", "dest": "/$1.js"
+      },
+      {
+        "src": "(.*).json", "dest": "/$1.json"
+      },
+      {
+        "src": "/.*", "dest": "/index.html"
+      }
     ]
-
-}
+  }
