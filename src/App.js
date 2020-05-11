@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react'
 import { ListOfCategories } from './components/ListOfCategories'
 import { GlobalStyle } from './styles/GlobalStyles'
@@ -18,7 +19,7 @@ export const App = () => {
           ? <PhotoCardWithQuery id={detailId} />
           : <>
             <ListOfCategories />
-            <ListOfPhotoCards categoryId={2} />
+            <ListOfPhotoCards categoryId={1} />
           </>
       }
     </div>
