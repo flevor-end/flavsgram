@@ -1,27 +1,44 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React from 'react'
-import { ListOfCategories } from './components/ListOfCategories'
 import { GlobalStyle } from './styles/GlobalStyles'
-import { ListOfPhotoCards } from './container/ListOfPhotoCards'
 import { Logo } from './components/Logo'
-import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
+import { NavBar } from './components/NavBar'
+import { Home } from './Pages/Home'
+import { Detail } from './Pages/Detail'
+import { Favs } from './Pages/Favs'
+import { User } from './Pages/User'
+import { NotRegisteredUser } from './Pages/NotRegisteredUser'
+import { Router } from '@reach/router'
+import Context from './Context'
 
 export const App = () => {
-  const urlParams = new window.URLSearchParams(window.location.search)
-  const detailId = urlParams.get('detail')
-
   return (
     <div>
       <GlobalStyle />
       <Logo />
-      {
-        detailId
-          ? <PhotoCardWithQuery id={detailId} />
-          : <>
-            <ListOfCategories />
-            <ListOfPhotoCards categoryId={1} />
-          </>
-      }
+      <Router>
+        <Home path='/' />
+        <Home path='/pet/:categoryId' />
+        <Detail path='/detail/:detailId' />
+
+      </Router>
+
+      <Context.Consumer>
+        {
+          ({ isAuth }) =>
+            isAuth
+              ? <Router>
+                <Favs path='/favs' />
+                <User path='/user' />
+              </Router>
+              : <Router>
+                <NotRegisteredUser path='/favs' />
+                <NotRegisteredUser path='/user' />
+
+              </Router>
+        }
+      </Context.Consumer>
+      <NavBar />
     </div>
   )
 }

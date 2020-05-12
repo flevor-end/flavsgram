@@ -16,6 +16,7 @@ ul, li, h1, h2, h3, p, button {
 
 ul {
     list-style: none;
+    padding: 0;
 }
 
 button {
