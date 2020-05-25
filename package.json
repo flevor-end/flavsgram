@@ -1,64 +1,60 @@
 {
-  "name": "curso-platzi-react-avanzado",
+  "name": "curso-platzi-react-avanzado-parallel",
   "version": "1.0.0",
-  "description": "¡Sígueme en Youtube! https://www.youtube.com/midudev",
+  "description": "Repositorio con el código del Curso Avanzado de React de Platzi",
   "main": "index.js",
+  "dependencies": {
+    "@reach/router": "^1.2.1",
+    "apollo-boost": "^0.4.0",
+    "graphql": "^14.3.1",
+    "graphql-tag": "^2.10.1",
+    "install": "^0.12.2",
+    "intersection-observer": "^0.7.0",
+    "npm": "^6.9.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.7.0",
+    "styled-components": "^4.2.0",
+    "webpack-pwa-manifest": "^4.0.0",
+    "workbox-webpack-plugin": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.0",
+    "html-webpack-plugin": "^3.2.0",
+    "standard": "^12.0.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
   "scripts": {
+    "build": "webpack --mode production",
     "now-build": "npm run build",
-    "build": "webpack",
     "lint": "standard",
     "dev": "webpack-dev-server --history-api-fallback",
-    "serve:dev": "webpack --mode 'development' && npx serve dist -s",
+    "serve:dev": "webpack --mode development && npx serve dist -s",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/midudev/curso-platzi-react-avanzado.git"
+    "url": "git+ssh://git@github.com/midudev/curso-platzi-react-avanzado.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
   },
   "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme",
-  "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "html-webpack-plugin": "^4.3.0",
-    "standard": "^14.3.3",
-    "webpack": "4.33.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
-    "webpack-pwa-manifest": "^4.2.0",
-    "workbox-webpack-plugin": "^5.1.3"
-  },
-  "dependencies": {
-    "@reach/router": "^1.3.3",
-    "apollo-boost": "^0.4.7",
-    "graphql": "^15.0.0",
-    "intersection-observer": "^0.10.0",
-    "prop-types": "^15.7.2",
-    "react": "16.8.6",
-    "react-apollo": "2.5.6",
-    "react-dom": "16.8.6",
-    "react-helmet": "^6.0.0",
-    "react-icons": "3.10.0",
-    "styled-components": "^5.1.0"
-  },
-  "standard": {
-    "ignore": [
-      "/api/**"
-    ]
-  },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": [
-      "./node_modules/standard/eslintrc.json"
-    ]
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }
